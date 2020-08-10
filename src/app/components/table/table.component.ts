@@ -3,6 +3,7 @@ import {ProtestantService} from "../../services/protestant.service";
 import {Country} from '../../country';
 import {NgbdSortableHeader, SortEvent} from '../../services/sortable.directive';
 import {Observable} from "rxjs";
+import {CsvReaderService} from "../../services/csv-reader.service";
 
 @Component({
   selector: 'app-table',
@@ -15,7 +16,7 @@ export class TableComponent implements OnInit {
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
-  constructor(public service: ProtestantService) {
+  constructor(public service: ProtestantService, public csvReaderService: CsvReaderService) {
     this.countries$ = service.countries$;
     this.total$ = service.total$;
   }
