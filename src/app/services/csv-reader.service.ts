@@ -43,7 +43,6 @@ getHeaderArray(csvRecordsArr: any) {
   for (let j = 0; j < headers.length; j++) {
     headerArray.push(headers[j]);
   }
-  console.log(headerArray);
   return headerArray;
 }
 }

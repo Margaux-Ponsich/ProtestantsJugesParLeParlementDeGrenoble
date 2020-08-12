@@ -60,3 +60,8 @@ ngb-carousel .picsum-img-wrapper>img {
 .table-striped tbody tr:nth-of-type(odd) {
   background-color: #eedeb9;
 }
+
+.table-striped tbody tr:hover{
+  cursor: pointer;
+  background-color: #9e937b;
+}

@@ -1,5 +1,5 @@
 export interface Country {
-  numero:number,
+  numero: string,
   moment: string,
   nom:string,
   prenom:string,

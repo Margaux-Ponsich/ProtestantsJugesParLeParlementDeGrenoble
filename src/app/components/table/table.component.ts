@@ -4,6 +4,7 @@ import {Country} from '../../country';
 import {NgbdSortableHeader, SortEvent} from '../../services/sortable.directive';
 import {Observable} from "rxjs";
 import {CsvReaderService} from "../../services/csv-reader.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-table',
@@ -16,7 +17,7 @@ export class TableComponent implements OnInit {
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
-  constructor(public service: ProtestantService, public csvReaderService: CsvReaderService) {
+  constructor(public service: ProtestantService, private router: Router) {
     this.countries$ = service.countries$;
     this.total$ = service.total$;
   }
@@ -34,5 +35,9 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  open (country: Country){
+    this.router.navigate(["baseDeDonnee/"+country.numero])
   }
 }
