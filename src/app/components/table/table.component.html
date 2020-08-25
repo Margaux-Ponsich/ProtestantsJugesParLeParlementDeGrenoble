@@ -1,0 +1,30 @@
+<form>
+  <div class="form-group form-inline">
+    Chercher une valeur: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
+    <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col" sortable="nom" (sort)="onSort($event)">nom</th>
+      <th scope="col" sortable="prenom" (sort)="onSort($event)">prenom</th>
+      <th scope="col" sortable="moment" (sort)="onSort($event)">moment</th>
+      <th scope="col" sortable="sexe" (sort)="onSort($event)">sexe</th>
+      <th scope="col" sortable="metier" (sort)="onSort($event)">metier</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="protestantLine" *ngFor="let country of this.countries$ | async" (click)="open(country)">
+      <th scope="row">{{ country.numero }}</th>
+      <td><ngb-highlight [result]="country.nom" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.prenom" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.moment" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.sexe" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.metier" [term]="service.searchTerm"></ngb-highlight></td>
+    </tr>
+    </tbody>
+  </table>
+
+</form>
