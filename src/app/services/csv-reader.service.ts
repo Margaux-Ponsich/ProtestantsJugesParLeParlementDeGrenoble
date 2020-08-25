@@ -10,12 +10,13 @@ export class CsvReaderService {
   records: Country[];
 
   constructor( private http: HttpClient) {
-    this.http.get('assets/db.csv', {responseType: 'text'})
+   /* this.http.get('assets/save.csv', {responseType: 'text'})
       .subscribe(data => {
         let csvRecordsArray = (<string>data).split(/\r\n|\n/);
         let headersRow = this.getHeaderArray(csvRecordsArray);
         this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
-      });
+      });*/
+   this.records = [];
   }
 
 getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
@@ -31,7 +32,10 @@ getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
       csvRecord.moment = curruntRecord[1].trim();
       csvRecord.metier = curruntRecord[6].trim();
       csvRecord.sexe = curruntRecord[4].trim();
+      console.log(csvRecord.sexe);
       csvArr.push(csvRecord);
+    } else {
+      console.log(curruntRecord.length);
     }
   }
   return csvArr;

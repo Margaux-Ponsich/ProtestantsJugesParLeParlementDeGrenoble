@@ -13,8 +13,6 @@ interface SearchResult {
 }
 
 interface State {
-  page: number;
-  pageSize: number;
   searchTerm: string;
   sortColumn: SortColumn;
   sortDirection: SortDirection;
@@ -50,8 +48,6 @@ export class ProtestantService {
   private _total$ = new BehaviorSubject<number>(0);
 
   private _state: State = {
-    page: 1,
-    pageSize: 10,
     searchTerm: '',
     sortColumn: '',
     sortDirection: ''
@@ -75,12 +71,8 @@ export class ProtestantService {
   get countries$() { return this._countries$.asObservable(); }
   get total$() { return this._total$.asObservable(); }
   get loading$() { return this._loading$.asObservable(); }
-  get page() { return this._state.page; }
-  get pageSize() { return this._state.pageSize; }
   get searchTerm() { return this._state.searchTerm; }
 
-  set page(page: number) { this._set({page}); }
-  set pageSize(pageSize: number) { this._set({pageSize}); }
   set searchTerm(searchTerm: string) { this._set({searchTerm}); }
   set sortColumn(sortColumn: SortColumn) { this._set({sortColumn}); }
   set sortDirection(sortDirection: SortDirection) { this._set({sortDirection}); }
@@ -91,7 +83,7 @@ export class ProtestantService {
   }
 
   private _search(): Observable<SearchResult> {
-    const {sortColumn, sortDirection, pageSize, page, searchTerm} = this._state;
+    const {sortColumn, sortDirection, searchTerm} = this._state;
 
     // 1. sort
     let countries = sort(this.csvReaderService.records, sortColumn, sortDirection);
@@ -100,8 +92,6 @@ export class ProtestantService {
     countries = countries.filter(country => matches(country, searchTerm));
     const total = countries.length;
 
-    // 3. paginate
-    countries = countries.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
     return of({countries, total});
   }
 }
