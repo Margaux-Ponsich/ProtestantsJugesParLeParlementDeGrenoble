@@ -38,6 +38,6 @@ export class TableComponent implements OnInit {
   }
 
   open (country: Country){
-    this.router.navigate(["baseDeDonnee/"+country.numero])
+    this.router.navigate(["baseDeDonnee/"+country.Numerodelaffaire])
   }
 }

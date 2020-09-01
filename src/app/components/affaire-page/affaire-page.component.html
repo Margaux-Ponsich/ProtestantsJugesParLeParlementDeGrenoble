@@ -1,6 +1,12 @@
 <app-top-bar></app-top-bar>
 <h1>page d'affaires {{id}}</h1>
 
-<div *ngFor="let record of this.relatedRecords">
-  {{display(record)}}
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr"  >
+<ng-container *ngFor="let record of this.relatedRecords">
+  <div class="cell">{{record.Nom}}</div>
+  <div class="cell">{{record.Prenom}}</div>
+  <div class="cell">{{record.Metier}}</div>
+  <div class="cell">{{record.Sexe}}</div>
+  <div class="cell">{{record.Momentdelaffaire}}</div>
+</ng-container>
 </div>

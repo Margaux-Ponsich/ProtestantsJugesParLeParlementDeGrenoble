@@ -8,21 +8,23 @@
     <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col" sortable="date" (sort)="onSort($event)">date</th>
       <th scope="col" sortable="nom" (sort)="onSort($event)">nom</th>
       <th scope="col" sortable="prenom" (sort)="onSort($event)">prenom</th>
-      <th scope="col" sortable="moment" (sort)="onSort($event)">moment</th>
+      <th scope="col" sortable="moment" (sort)="onSort($event)">document principal</th>
       <th scope="col" sortable="sexe" (sort)="onSort($event)">sexe</th>
       <th scope="col" sortable="metier" (sort)="onSort($event)">metier</th>
     </tr>
     </thead>
     <tbody>
     <tr class="protestantLine" *ngFor="let country of this.countries$ | async" (click)="open(country)">
-      <th scope="row">{{ country.numero }}</th>
-      <td><ngb-highlight [result]="country.nom" [term]="service.searchTerm"></ngb-highlight></td>
-      <td><ngb-highlight [result]="country.prenom" [term]="service.searchTerm"></ngb-highlight></td>
-      <td><ngb-highlight [result]="country.moment" [term]="service.searchTerm"></ngb-highlight></td>
-      <td><ngb-highlight [result]="country.sexe" [term]="service.searchTerm"></ngb-highlight></td>
-      <td><ngb-highlight [result]="country.metier" [term]="service.searchTerm"></ngb-highlight></td>
+      <th scope="row">{{ country.Numerodelaffaire }}</th>
+      <td><ngb-highlight [result]="country.DateToDisplay" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.Nom" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.Prenom" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.Momentdelaffaire" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.Sexe" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="country.Metier" [term]="service.searchTerm"></ngb-highlight></td>
     </tr>
     </tbody>
   </table>
