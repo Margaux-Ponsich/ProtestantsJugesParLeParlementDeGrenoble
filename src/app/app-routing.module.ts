@@ -9,11 +9,11 @@ const routes: Routes = [
   {path: 'accueil', component: AccueilComponent},
   {path: 'baseDeDonnee', component: BaseDeDonneesComponent},
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
-  { path: 'baseDeDonnee/:id', component: AffairePageComponent },
+  {path: 'baseDeDonnee/:id', component: AffairePageComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

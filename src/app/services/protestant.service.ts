@@ -32,12 +32,12 @@ function sort(countries: Country[], column: SortColumn, direction: string): Coun
 }
 
 function matches(country: Country, term: string) {
-  return country.nom.toLowerCase().includes(term.toLowerCase())
-    ||country.prenom.toLowerCase().includes(term.toLowerCase())
-    ||country.moment.toLowerCase().includes(term.toLowerCase())
-    ||country.sexe.toLowerCase().includes(term.toLowerCase())
-    ||country.metier.toLowerCase().includes(term.toLowerCase())
-    || (""+country.numero).includes(term)
+  return country.Nom.toLowerCase().includes(term.toLowerCase())
+    ||country.Prenom.toLowerCase().includes(term.toLowerCase())
+    ||country.Momentdelaffaire.toLowerCase().includes(term.toLowerCase())
+    ||country.Sexe.toLowerCase().includes(term.toLowerCase())
+    ||country.Metier.toLowerCase().includes(term.toLowerCase())
+    || (""+country.Numerodelaffaire).includes(term)
 }
 
 @Injectable({providedIn: 'root'})
@@ -89,8 +89,11 @@ export class ProtestantService {
     let countries = sort(this.csvReaderService.records, sortColumn, sortDirection);
 
     // 2. filter
-    countries = countries.filter(country => matches(country, searchTerm));
-    const total = countries.length;
+    let total = 0;
+    if (countries !== undefined && countries !== null) {
+      countries = countries.filter(country => matches(country, searchTerm));
+      total = countries.length;
+    }
 
     return of({countries, total});
   }

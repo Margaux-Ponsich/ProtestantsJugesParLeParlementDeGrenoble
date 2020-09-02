@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {CsvReaderService} from "../../services/csv-reader.service";
-import {Protestant} from "../../country";
+import {Country} from "../../country";
 
 @Component({
   selector: 'app-affaire-page',
@@ -13,7 +13,7 @@ export class AffairePageComponent implements OnInit {
   constructor( private router: Router,  private route: ActivatedRoute, private csvReaderService: CsvReaderService) { }
 
   id ='';
-  relatedRecords = [];
+  relatedRecords: Country[] = [];
 
   ngOnInit(): void {
     if(this.csvReaderService.records != undefined) {
@@ -26,11 +26,11 @@ export class AffairePageComponent implements OnInit {
   getAffaire(): void {
     this.relatedRecords = [];
     this.id = this.route.snapshot.paramMap.get('id');
-    this.relatedRecords = this.csvReaderService.records.filter(record => record.numero==this.id);
+    this.relatedRecords = this.csvReaderService.records.filter(record => record.Numerodelaffaire==this.id);
   }
 
-  display(record: Protestant){
-    return record.prenom + " " + record.nom + " " + record.sexe;
+  display(record: Country){
+    return record.Prenom + " " + record.Nom + " " + record.Sexe;
   }
 
 }
