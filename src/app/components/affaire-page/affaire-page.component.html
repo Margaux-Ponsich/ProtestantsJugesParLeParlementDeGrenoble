@@ -1,12 +1,77 @@
 <app-top-bar></app-top-bar>
-<h1>page d'affaires {{id}}</h1>
-
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr"  >
+<h1>Affaire numéro {{id}}</h1>
+<div style="width: 100%; height: calc(100% - 200px); overflow: auto">
+<div style="width: calc(100% - 10px); overflow-y: auto; margin-left: 5px">
+<!--  13 15 19 24 28 30 32-->
+<div style="display: grid;
+  grid-template-columns: repeat(7,max-content) 35% repeat(4,max-content) 35% max-content 35% repeat(3,max-content) 35% repeat(4,max-content) 35% repeat(3,max-content) 35% max-content 35% max-content 35%"
+[ngStyle]="{'grid-template-rows': 'fit-content repeat('+(this.relatedRecords.length)+', 100px)'}">
+  <div class="cell header">Moment de l'affaire</div>
+  <div class="cell header">Nom</div>
+  <div class="cell header">Prénom</div>
+  <div class="cell header">Sexe</div>
+  <div class="cell header">Lien de Parenté</div>
+  <div class="cell header">Métier</div>
+  <div class="cell header">Domicile</div>
+  <div class="cell header">Crime</div>
+  <div class="cell header">Côte du verbal</div>
+  <div class="cell header">Date d'arrestation ou date du verbal </div>
+  <div class="cell header">Rédacteur du verbal</div>
+  <div class="cell header">Lieu d'arrestation</div>
+  <div class="cell header">Contenu du verbal </div>
+  <div class="cell header">Présence dans les prisons du parlement de Grenoble</div>
+  <div class="cell header">Contenu de l'écrou </div>
+  <div class="cell header">Abjuration</div>
+  <div class="cell header">Côte registre des arrêts ou brouillard</div>
+  <div class="cell header">Date de l'arrêt</div>
+  <div class="cell header">Contenu de l'arrêt</div>
+  <div class="cell header">Base de donnée des galériens</div>
+  <div class="cell header">Côte registre des arrêts au propre</div>
+  <div class="cell header">Date de l'arrêt</div>
+  <div class="cell header">Sujet</div>
+  <div class="cell header">Contenu de l'arrêt</div>
+  <div class="cell header">Côte du registre des rémissions</div>
+  <div class="cell header">Date</div>
+  <div class="cell header">Provenance des pièces</div>
+  <div class="cell header">Mention du registre des rémissions</div>
+  <div class="cell header">Côte du registre de distribution</div>
+  <div class="cell header">Mention du registre de distribution</div>
+  <div class="cell header">Côte deuxième mention registre de distribution</div>
+  <div class="cell header">Deuxième mention dans le registre de distribution </div>
 <ng-container *ngFor="let record of this.relatedRecords">
-  <div class="cell">{{record.Nom}}</div>
-  <div class="cell">{{record.Prenom}}</div>
-  <div class="cell">{{record.Metier}}</div>
-  <div class="cell">{{record.Sexe}}</div>
-  <div class="cell">{{record.Momentdelaffaire}}</div>
+  <div class="cell"><div class="tableContent">{{record.Momentdelaffaire}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Nom}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Prenom}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Sexe}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Indicationfamiliale}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Metier}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Lieudevie}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Raisondelarrestation}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Localisationduverbal}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Datedarrestationdateduverbal}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Quilaarreteredigeleverbal}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Lieudarrestation}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.renseignementdansleverbal}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Presentedanslaprisons}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.RENSEIGNMENTECROUX}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.ADJURATION}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Registredarretoubrouillard}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Datedelarret}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Sentence}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Ajoutinformationautrebasededonnecommecelledesgaleriens}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Registrecomplet}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.dateduregistre}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Surquoiportelarret}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Detailutilise}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Registrederemission}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Date}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Endroitdouviennentlespiece}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Informationsupplementaire}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.LocalisationDuRegistre}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.Registredecommisaire}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.LocalisationDeuxiemeMention}} </div> </div>
+  <div class="cell"><div class="tableContent">{{record.DeuxiemeMentionRegistreDistrib}} </div> </div>
 </ng-container>
+</div>
+</div>
 </div>

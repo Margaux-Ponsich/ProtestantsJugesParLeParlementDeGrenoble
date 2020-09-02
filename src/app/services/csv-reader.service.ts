@@ -10,7 +10,7 @@ export class CsvReaderService {
   records: Country[];
 
   constructor( private http: HttpClient) {
-    this.http.get('assets/newDB.csv', {responseType: 'text'})
+    this.http.get('assets/final.csv', {responseType: 'text'})
       .subscribe(data => {
         let csvRecordsArray = (<string>data).split(/\r\n|\n/);
         let headersRow = this.getHeaderArray(csvRecordsArray);
