@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ProtestantService} from "../../services/protestant.service";
 
 @Component({
   selector: 'app-base-de-donnees',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BaseDeDonneesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public  protestantService: ProtestantService) { }
 
   ngOnInit(): void {
+    this.protestantService.doTheSearch()
   }
 
 }
