@@ -7,9 +7,9 @@ import {AffairePageComponent} from "./components/affaire-page/affaire-page.compo
 
 const routes: Routes = [
   {path: 'accueil', component: AccueilComponent},
-  {path: 'baseDeDonnee', component: BaseDeDonneesComponent},
+  {path: 'baseDeDonnees', component: BaseDeDonneesComponent},
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
-  {path: 'baseDeDonnee/:id', component: AffairePageComponent },
+  {path: 'baseDeDonnees/:id', component: AffairePageComponent },
 ];
 
 @NgModule({

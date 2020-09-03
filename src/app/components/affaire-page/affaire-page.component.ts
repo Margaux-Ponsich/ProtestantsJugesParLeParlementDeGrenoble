@@ -19,7 +19,7 @@ export class AffairePageComponent implements OnInit {
     if(this.csvReaderService.records != undefined) {
       this.getAffaire();
     } else {
-      this.router.navigate(["/baseDeDonnee"]);
+      this.router.navigate(["/baseDeDonnees"]);
     }
   }
 

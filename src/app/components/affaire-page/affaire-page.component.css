@@ -13,3 +13,12 @@
 
 .tableContent{
 }
+
+.information{
+  width: 100%;
+  font-size: 80%;
+}
+
+.inlineBlock{
+  display: inline-block;
+}
