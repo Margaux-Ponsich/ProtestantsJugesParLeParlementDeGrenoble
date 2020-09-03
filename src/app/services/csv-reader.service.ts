@@ -16,7 +16,6 @@ export class CsvReaderService {
         let headersRow = this.getHeaderArray(csvRecordsArray);
         this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
       });
-  // this.records = [];
   }
 
 getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any): Country[]{
@@ -69,10 +68,7 @@ getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any): Country
       if(csvRecord.DateToDisplay === undefined || csvRecord.DateToDisplay === null || csvRecord.DateToDisplay.length === 0 ){
         csvRecord.DateToDisplay = csvRecord.dateduregistre;
       }
-      console.log(csvRecord.Sexe);
       csvArr.push(csvRecord);
-    } else {
-      console.log(curruntRecord.length);
     }
   }
   return csvArr;
