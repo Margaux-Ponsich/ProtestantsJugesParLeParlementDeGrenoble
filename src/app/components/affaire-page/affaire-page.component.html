@@ -4,7 +4,7 @@
 
   <h3 style="margin: 20px" [ngStyle]="{'color':
        record.Sexe.toLowerCase().includes('h')?'blue':
-       record.Sexe.toLowerCase().includes('f')?'pink': 'green'}">
+       (record.Sexe.toLowerCase().includes('enfant')?'green': 'pink')}">
     {{record.Nom.toUpperCase()}} {{record.Prenom}}</h3>
   <div style="margin: 50px; width: calc(100% - 100px)" class="information">
     <ng-container>
