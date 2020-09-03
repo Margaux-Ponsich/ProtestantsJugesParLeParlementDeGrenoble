@@ -54,6 +54,10 @@ export class ProtestantService {
   };
 
   constructor(private csvReaderService: CsvReaderService) {
+    this.doTheSearch();
+  }
+
+  public doTheSearch(){
     this._search$.pipe(
       tap(() => this._loading$.next(true)),
       debounceTime(200),
@@ -64,7 +68,6 @@ export class ProtestantService {
       this._countries$.next(result.countries);
       this._total$.next(result.total);
     });
-
     this._search$.next();
   }
 

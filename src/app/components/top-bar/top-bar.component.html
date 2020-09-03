@@ -1,11 +1,11 @@
 <div class="toolbar">
-  <div class="title" >Les Protestants Jugés Par Le Parlement De Grenoble </div>
+  <div class="title" >Les Protestants Jugés Par Le Parlement De Grenoble (1685-1704) </div>
   <hr>
-  <div class="subtitle" >sous titre</div>
+  <div class="subtitle" >Constitué à partir des sources des archives départementales de l'Isère</div>
 </div>
 <div class="tools">
   <div class="button" (click)="this.router.navigate(['accueil']);" >Accueil </div>
-  <div class="button" (click)="this.router.navigate(['baseDeDonnee']);" >Base de donnée </div>
-  <div class="button" >Contact </div>
-  <div class="button" >Autre </div>
+  <div class="button" (click)="this.router.navigate(['baseDeDonnee']); this.protestantService.doTheSearch();" >Base de donnée </div>
+<!--  <div class="button" >Contact </div>-->
+<!--  <div class="button" >Autre </div>-->
 </div>
